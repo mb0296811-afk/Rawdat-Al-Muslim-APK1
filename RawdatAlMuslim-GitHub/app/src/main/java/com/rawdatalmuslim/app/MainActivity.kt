@@ -4,7 +4,6 @@ import android.Manifest
 import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.webkit.JavascriptInterface
@@ -41,11 +40,9 @@ class MainActivity : Activity() {
         settings.mediaPlaybackRequiresUserGesture = false
         settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
 
-        // اعتراض الروابط لفتح ملف المصحف PDF بصورة خارجية صحيحة
         web.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(view: WebView?, request: android.webkit.WebResourceRequest?): Boolean {
                 val url = request?.url.toString()
-                // إذا كان الرابط يخص ملف المصحف أو صيغة pdf
                 if (url.contains("quran") || url.endsWith(".pdf")) {
                     try {
                         val fileName = "standard1-quran.pdf"
