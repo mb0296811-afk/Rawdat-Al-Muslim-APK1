@@ -210,7 +210,7 @@ button:hover { background: var(--primary-color); transform: translateY(-1px); }
 .progress-bar-bg { width: 100%; height: 14px; background: var(--border-color); border-radius: 8px; overflow: hidden; margin: 10px 0; }
 .progress-bar-fill { height: 100%; background: var(--accent-color); width: 0%; transition: width 0.2s ease; }
 
-/* إطار المصحف الشريف المصمم لملف standard1-quran.pdf */
+/* إطار المصحف الشريف أونلاين */
 .quran-container {
     background: linear-gradient(145deg, #0b2e1b, #1b4332);
     padding: 12px;
@@ -304,13 +304,13 @@ html, body { max-width: 100%; overflow-x: hidden; }
         </div>
     </section>
 
-    <!-- القرآن الكريم (من ملف standard1-quran.pdf الخاص بك) -->
+    <!-- القرآن الكريم (أونلاين عبر quran.com) -->
     <section id="quranTab" class="section-pane">
         <div class="box">
             <h2>📖 قراءة القرآن الكريم</h2>
-            <p style="margin-bottom: 12px; color: var(--text-muted);">تصفح المصحف الشريف بسهولة مباشرة من ملف المصحف الخاص بك:</p>
+            <p style="margin-bottom: 12px; color: var(--text-muted);">تصفح المصحف الشريف بجميع صفحاته والتفسير والصوتيات مباشرة:</p>
             <div class="quran-container">
-                <iframe src="standard1-quran.pdf" class="pdf-viewer-frame" title="قراءة القرآن الكريم"></iframe>
+                <iframe src="https://quran.com/ar" class="pdf-viewer-frame" title="قراءة القرآن الكريم"></iframe>
             </div>
         </div>
     </section>
@@ -381,7 +381,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
         <div class="box">
             <h2> استغفار - عداد الاستغفار</h2>
             <div class="counter-box">
-                <p style="font-family:'Amiri'; font-size:1.4rem; color:var(--secondary-color);">«أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ وَأَتُوبُ إِلَيْهِ»</p>
+                <p style="font-family:'Amiri'; font-size:1.4rem; color:var(--secondary-color);">«أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ وَأَتُوبُ إِلَيْهِ»</p>
                 <div class="counter-number" id="istighfarCount">0</div>
                 <button onclick="incrementIstighfar()" style="max-width:200px; margin:0 auto;">استغفرت الله ➕</button>
                 <button onclick="resetIstighfar()" class="secondary-btn" style="max-width:120px; margin:10px auto 0;">إعادة ⟲</button>
@@ -431,9 +431,9 @@ html, body { max-width: 100%; overflow-x: hidden; }
             <h2>✨ قرآن مود (الحالات الإيمانية والنفسية)</h2>
             <p style="margin-bottom:12px; color:var(--text-muted);">انقر على حالتك النفسية الحالية لتعرض لك الآية والدعاء والتفسير فوراً:</p>
             <div class="grid-cards">
-                <div class="card-item" onclick="openMood('حزين / مكروب', 'إِنَّ مَعَ الْعُسْرِ يُسْرًا', 'سورة الشرح - آية 6', 'اللهم إني عبدك ابن عبدك ناصيتي بيدك، أسألك أن تجعل القرآن ربيع قلبي ونور صدري وجلاء حزني.')">🌧️ حزين / مكروب</div>
-                <div class="card-item" onclick="openMood('قلق / خائف', 'أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ', 'سورة الرعد - آية 28', 'حسبنا الله ونعم الوكيل، اللهم أنزل السكينة والطمأنينة على قلبي.')">🌿 قلق / خائف</div>
-                <div class="card-item" onclick="openMood('ضيق رزق', 'وَمَنْ يَتَّقِ اللَّهَ يَجْعَلْ لَهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ', 'سورة الطلاق', 'اللهم اكفني بحلالك عن حرامك، وأغنني بفضلك عمن سواك.')">💰 ضيق رزق</div>
+                <div class="card-item" onclick="openMood('حزين / مكروب', 'إِنَّ مَعَ الْعُسْرِ يُسْرًا', 'سورة الشرح - آية 6', 'اللهم إني عبدك ابن عبدك ناصيتي بيدك، أسألك أن تجعل القرآن ربيع قلبي ونور صدري وجلاء حزني.')">🌧️ حزين / مكروب</div>
+                <div class="card-item" onclick="openMood('قلق / خائف', 'أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ', 'سورة الرعد - آية 28', 'حسبنا الله ونعم الوكيل، اللهم أنزل السكينة والطمأنينة على قلبي.')">🌿 قلق / خائف</div>
+                <div class="card-item" onclick="openMood('ضيق رزق', 'وَمَنْ يَتَّقِ اللَّهَ يَجْعَلْ لَهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ', 'سورة الطلاق', 'اللهم اكفني بحلالك عن حرامك، وأغنني بفضلك عمن سواك.')">💰 ضيق رزق</div>
                 <div class="card-item" onclick="openMood('مريض / متألم', 'وَإِذَا مَرِضْتُ فَهُوَ يَشْفِينِ', 'سورة الشعراء - آية 80', 'اللهم رب الناس أذهب البأس اشفِ أنت الشافي لا شفاء إلا شفاؤك.')">🤲 مريض / متألم</div>
             </div>
             <div id="moodDisplayBox" style="display:none; background:var(--bg-color); border:1px solid var(--accent-color); padding:20px; border-radius:14px; margin-top:15px; text-align:center;">
@@ -455,7 +455,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
                     <select id="tasbeehDhikrType">
                         <option value="سُبْحَانَ اللَّهِ">سُبْحَانَ اللَّهِ</option>
                         <option value="الْحَمْدُ لِلَّهِ">الْحَمْدُ لِلَّهِ</option>
-                        <option value="لَا إِلَهَ إِلَّا اللَّهُ">لَا إِلَهَ إِلَّا اللَّهُ</option>
+                        <option value="لَا إِلَهَ إِلَّا اللَّهُ">لَا إِلَهَ إِلَّا اللَّهُ</option>
                         <option value="اللَّهُ أَكْبَرُ">اللَّهُ أَكْبَرُ</option>
                         <option value="سُبْحَانَ اللَّهِ وَبِحَمْدِهِ">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ</option>
                         <option value="سُبْحَانَ اللَّهِ الْعَظِيمِ">سُبْحَانَ اللَّهِ الْعَظِيمِ</option>
@@ -522,21 +522,21 @@ if(localStorage.getItem('darkMode') === 'true') document.body.classList.add('dar
 
 // قسم آية اليوم
 const versesOfTheDay = [
-    { text: "إِنَّ مَعَ الْعُسْرِ يُسْرًا", source: "سورة الشرح - آية 6" },
-    { text: "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ", source: "سورة الرعد - آية 28" },
-    { text: "وَمَنْ يَتَّقِ اللَّهَ يَجْعَلْ لَهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ", source: "سورة الطلاق - آية 2-3" },
-    { text: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ الْعُسْرِ يُسْرًا", source: "سورة الشرح - آية 5-6" },
-    { text: "وَقُلْ رَبِّ زِدْنِي عِلْمًا", source: "سورة طه - آية 114" },
-    { text: "لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا", source: "سورة التوبة - آية 40" },
+    { text: "إِنَّ مَعَ الْعُسْرِ يُسْرًا", source: "سورة الشرح - آية 6" },
+    { text: "أَلَا بِذِكْرِ اللَّهِ تَطْمَئِنُّ الْقُلُوبُ", source: "سورة الرعد - آية 28" },
+    { text: "وَمَنْ يَتَّقِ اللَّهَ يَجْعَلْ لَهُ مَخْرَجًا وَيَرْزُقْهُ مِنْ حَيْثُ لَا يَحْتَسِبُ", source: "سورة الطلاق - آية 2-3" },
+    { text: "فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ الْعُسْرِ يُسْرًا", source: "سورة الشرح - آية 5-6" },
+    { text: "وَقُلْ رَبِّ زِدْنِي عِلْمًا", source: "سورة طه - آية 114" },
+    { text: "لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا", source: "سورة التوبة - آية 40" },
     { text: "وَهُوَ مَعَكُمْ أَيْنَ مَا كُنْتُمْ", source: "سورة الحديد - آية 4" },
-    { text: "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ", source: "سورة البقرة - آية 153" },
-    { text: "وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ عَلَيْهِ توكلت وإليه أنيب", source: "سورة هود - آية 88" },
-    { text: "إِنَّ رَبِّي قَرِيبٌ مُجِيبٌ", source: "سورة هود - آية 61" },
-    { text: "وَكَفَىٰ بِاللَّهِ وَكِيلًا", source: "سورة الأحزاب - آية 3" },
+    { text: "إِنَّ اللَّهَ مَعَ الصَّابِرِينَ", source: "سورة البقرة - آية 153" },
+    { text: "وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ عَلَيْهِ توكلت وإليه أنيب", source: "سورة هود - آية 88" },
+    { text: "إِنَّ رَبِّي قَرِيبٌ مُجِيبٌ", source: "سورة هود - آية 61" },
+    { text: "وَكَفَىٰ بِاللَّهِ وَكِيلًا", source: "سورة الأحزاب - آية 3" },
     { text: "فَاذْكُرُونِي أَذْكُرْكُمْ وَاشْكُرُوا لِي وَلَا تَكْفُرُونِ", source: "سورة البقرة - آية 152" },
-    { text: "وَلَا تَيْأَسُوا مِنْ رَوْحِ اللَّهِ إِنَّهُ لا ييأس من روح القوم الكافرون", source: "سورة يوسف - آية 87" },
-    { text: "وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ", source: "سورة البقرة - آية 186" },
-    { text: "وَتَوَكَّلْ عَلَى الْحَيِّ الَّذِي لَا يَمُوتُ وَسَبِّحْ بِحَمْدِهِ", source: "سورة الفرقان - آية 58" }
+    { text: "وَلَا تَيْأَسُوا مِنْ رَوْحِ اللَّهِ إِنَّهُ لا ييأس من روح القوم الكافرون", source: "سورة يوسف - آية 87" },
+    { text: "وَإِذَا سَأَلَكَ عِبَادِي عَنِّي فَإِنِّي قَرِيبٌ أُجِيبُ دَعْوَةَ الدَّاعِ إِذَا دَعَانِ", source: "سورة البقرة - آية 186" },
+    { text: "وَتَوَكَّلْ عَلَى الْحَيِّ الَّذِي لَا يَمُوتُ وَسَبِّحْ بِحَمْدِهِ", source: "سورة الفرقان - آية 58" }
 ];
 function loadVerseOfDay() {
     const v = versesOfTheDay[Math.floor(Math.random() * versesOfTheDay.length)];
@@ -574,7 +574,6 @@ function updateGlobalAdhan(val) {
     });
     localStorage.setItem('prayers_data_custom', JSON.stringify(prayersList));
     renderPrayers();
-    syncNativePrayerAlarms();
 }
 
 function renderPrayers() {
@@ -603,7 +602,6 @@ function renderPrayers() {
                     <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
                         <span style="font-size: 0.85rem; font-weight: bold; color: var(--text-muted);">${audioDesc}</span>
                         <button onclick="previewAdhan('${prayer.audio}')" class="secondary-btn" style="width: auto; padding: 4px 10px; font-size: 0.8rem;">سماع الصوت 🔊</button>
-                        <button onclick="testAdhanNotice('${prayer.name}', '${prayer.audio}')" style="width: auto; padding: 4px 10px; font-size: 0.8rem; background: var(--accent-color); color: var(--primary-color);">تجربة 🔔</button>
                     </div>
                     <div class="single-celebration" style="display: ${prayer.completed ? 'block' : 'none'};">
                         🎉 تقبل الله صلاتك ومبارك إتمامها!
@@ -616,12 +614,12 @@ function renderPrayers() {
         `;
     });
 }
+renderPrayers();
 
 function updatePrayerTime(index, key, val) {
     if (key === 'hour' || key === 'minute') val = parseInt(val);
     prayersList[index][key] = val;
     localStorage.setItem('prayers_data_custom', JSON.stringify(prayersList));
-    syncNativePrayerAlarms();
 }
 
 function previewAdhan(file) {
@@ -630,294 +628,11 @@ function previewAdhan(file) {
     player.play().catch(() => alert("اضغط في أي مكان بالشاشة أولاً لتفعيل تشغيل الصوت"));
 }
 
-function testAdhanNotice(prayerName, file) {
-    if (document.getElementById('adhanOverlayCheck').checked) {
-        document.getElementById('adhanOverlayTitle').textContent = `حان الآن وقت أذان ${prayerName}`;
-        document.getElementById('adhanOverlay').classList.add('active');
-    }
-    const player = document.getElementById("adhanAudioPlayer");
-    player.src = file;
-    player.play().catch(() => console.log('تعذر التشغيل المباشر'));
-}
-
 function togglePrayer(index) {
     prayersList[index].completed = !prayersList[index].completed;
     localStorage.setItem('prayers_data_custom', JSON.stringify(prayersList));
     renderPrayers();
 }
-renderPrayers();
-
-function saveAdhanSettings() {
-    localStorage.setItem('overlayShow', document.getElementById('adhanOverlayCheck').checked);
-    localStorage.setItem('muteMode', document.getElementById('muteModeCheck').checked);
-    syncNativePrayerAlarms();
-}
-
-function syncNativePrayerAlarms() {
-    try {
-        if (window.AndroidPrayer && typeof window.AndroidPrayer.syncPrayerData === 'function') {
-            AndroidPrayer.syncPrayerData(
-                JSON.stringify(prayersList),
-                false,
-                document.getElementById('muteModeCheck').checked
-            );
-        }
-    } catch (e) { console.log('Native prayer sync unavailable', e); }
-}
-
-(function restoreAdhanPreferences() {
-    const overlay = localStorage.getItem('overlayShow');
-    const muted = localStorage.getItem('muteMode');
-    if (overlay !== null) document.getElementById('adhanOverlayCheck').checked = overlay === 'true';
-    if (muted !== null) document.getElementById('muteModeCheck').checked = muted === 'true';
-    syncNativePrayerAlarms();
-})();
-
-setInterval(() => {
-    const now = new Date();
-    let currentHour24 = now.getHours();
-    let currentMinute = now.getMinutes();
-    
-    let currentPeriod = currentHour24 >= 12 ? 'PM' : 'AM';
-    let currentHour12 = currentHour24 % 12;
-    if (currentHour12 === 0) currentHour12 = 12;
-    
-    prayersList.forEach(p => {
-        if (p.hour === currentHour12 && p.minute === currentMinute && p.period === currentPeriod && !p.triggered) {
-            p.triggered = true;
-            triggerAdhan(p);
-        }
-    });
-}, 1000);
-
-function triggerAdhan(prayer) {
-    const isMuted = document.getElementById('muteModeCheck').checked;
-    if(isMuted) return;
-
-    if (document.getElementById('adhanOverlayCheck').checked) {
-        document.getElementById('adhanOverlayTitle').textContent = `حان الآن وقت ${prayer.name}`;
-        document.getElementById('adhanOverlay').classList.add('active');
-    }
-    const player = document.getElementById("adhanAudioPlayer");
-    player.src = prayer.audio;
-    player.play().catch(() => console.log('صامت / يتطلب تفاعل'));
-}
-
-function stopAdhanOverlay() {
-    document.getElementById('adhanOverlay').classList.remove('active');
-    const player = document.getElementById("adhanAudioPlayer");
-    player.pause();
-    player.currentTime = 0;
-}
-
-// كتم الصوت وإيقاف الآذان عند الضغط على أزرار الصوت بجانب الهاتف
-window.addEventListener('keydown', function(event) {
-    const player = document.getElementById("adhanAudioPlayer");
-    if (!player.paused || document.getElementById('adhanOverlay').classList.contains('active')) {
-        if (event.key === 'VolumeUp' || event.key === 'VolumeDown' || event.keyCode === 174 || event.keyCode === 175) {
-            stopAdhanOverlay();
-        }
-    }
-});
-
-// روابط بث احتياطية ورسمية متعددة لإذاعة القرآن الكريم لضمان التشغيل المستقر
-function playRadioCairo() {
-    const audio = document.getElementById("cairoRadioAudio");
-    const streamUrls = [
-        "https://stream.radiojar.com/8s5u5tpdtwzuv",
-        "https://n02.crypto-services.academy/stream/quran_cairo",
-        "https://live.radioeg.net/radio/8020/stream"
-    ];
-    let currentUrlIndex = 0;
-    
-    audio.src = streamUrls[currentUrlIndex];
-    audio.play().catch(() => {
-        audio.onerror = function() {
-            currentUrlIndex++;
-            if (currentUrlIndex < streamUrls.length) {
-                audio.src = streamUrls[currentUrlIndex];
-                audio.play();
-            }
-        };
-    });
-}
-
-function playSurah() {
-    const url = document.getElementById("reciter").value + String(audioSurahSelect.value).padStart(3, '0') + ".mp3";
-    const audio = document.getElementById("audio");
-    audio.src = url;
-    audio.play();
-}
-
-const allahNamesGrid = [
-    ["الرحمن", "الرحيم", "الملك", "القدوس", "السلام", "المؤمن", "المهيمن", "العزيز", "الجبار"],
-    ["المتكبر", "الخالق", "الباريء", "المصور", "الغفار", "القهار", "الوهاب", "الرزاق", "الفتاح"],
-    ["العليم", "القابض", "الباسط", "الخافض", "الرافع", "المعز", "المذل", "السميع", "البصير"],
-    ["الحكم", "العدل", "اللَّطيف", "الخبير", "الحليم", "العظيم", "الغفور", "الشكور", "العلي"],
-    ["الكبير", "الحفيظ", "المقيت", "الحسيب", "الجليل", "الكريم", "الرقيب", "المجيب", "الواسع"],
-    ["الحكيم", "الودود", "المجيد", "الباعث", "الشهيد", "الحق", "الوكيل", "القوي", "المتين"],
-    ["الولي", "الحميد", "المحصي", "المبديء", "المعيد", "المحيي", "المميت", "الحي", "القيوم"],
-    ["الواجد", "الماجد", "الواحد", "الصمد", "القادر", "المقتدر", "المقدم", "المؤخر", "الأول"],
-    ["الأخر", "الظاهر", "الباطن", "الوالي", "المتعال", "البر", "التواب", "المنتقم", "العفو"],
-    ["الرؤوف", "المقسط", "الجامع", "الغني", "المغني", "المانع", "الضار", "النافع", "النور"],
-    ["الهادي", "البديع", "الباقي", "الوارث", "الرشيد", "الصبور", "مالك الملك", "ذو الجلال والإكرام", ""]
-];
-
-function renderAllahNamesTable() {
-    const table = document.getElementById("allahNamesTable");
-    table.innerHTML = "";
-    allahNamesGrid.forEach(row => {
-        let tr = document.createElement("tr");
-        row.forEach(name => {
-            let td = document.createElement("td");
-            td.textContent = name;
-            tr.appendChild(td);
-        });
-        table.appendChild(tr);
-    });
-}
-renderAllahNamesTable();
-
-let prophetCount = parseInt(localStorage.getItem('prophet_count') || 0);
-document.getElementById("prophetCount").textContent = prophetCount;
-function incrementProphet() {
-    prophetCount++;
-    document.getElementById("prophetCount").textContent = prophetCount;
-    localStorage.setItem('prophet_count', prophetCount);
-    if(navigator.vibrate) navigator.vibrate(30);
-}
-function resetProphet() {
-    prophetCount = 0;
-    document.getElementById("prophetCount").textContent = prophetCount;
-    localStorage.setItem('prophet_count', 0);
-}
-
-let istighfarCount = parseInt(localStorage.getItem('istighfar_count') || 0);
-document.getElementById("istighfarCount").textContent = istighfarCount;
-function incrementIstighfar() {
-    istighfarCount++;
-    document.getElementById("istighfarCount").textContent = istighfarCount;
-    localStorage.setItem('istighfar_count', istighfarCount);
-    if(navigator.vibrate) navigator.vibrate(30);
-}
-function resetIstighfar() {
-    istighfarCount = 0;
-    document.getElementById("istighfarCount").textContent = istighfarCount;
-    localStorage.setItem('istighfar_count', 0);
-}
-
-// الأذكار الموسعة والشاملة
-const adhkarData = {
-    sabah: [
-        { title: "آية الكرسي", desc: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ ۗ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ." },
-        { title: "سورة الإخلاص والمعوذات (تقرأ ثلاث مرات)", desc: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ۝ قُلْ هُوَ اللَّهُ أَحَدٌ... (وكذلك سورة الفلق والناس تكفيك من كل شيء)." },
-        { title: "أصبحنا وأصبح الملك لله والحمد لله", desc: "لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير، رب أسألك خير ما في هذا اليوم وخير ما بعده، وأعوذ بك من شر ما في هذا اليوم وشر ما بعده." },
-        { title: "سيد الاستغفار", desc: "اللهم أنت ربي لا إله إلا أنت، خلقتني وأنا عبدك، وأنا على عهدك ووعدك ما استطعت، أعوذ بك من شر ما صنعت، أبوء لك بنعمتك علي، وأبوء لك بذنبي فاغفر لي؛ إنه لا يغفر الذنوب إلا أنت." },
-        { title: "رضيت بالله رباً وبالإسلام ديناً وبمحمد صلى الله عليه وسلم نبياً (ثلاث مرات)", desc: "من قالها حين يصبح وحين يمسي كان حقاً على الله أن يرضيه يوم القيامة." },
-        { title: "اللهم إني أصبحت أشهُدك وأشهُد حملة عرشك وملائكتك وجميع خلقك", desc: "أنك أنت الله لا إله إلا أنت وحدك لا شريك لك، وأن محمداً عبدك ورسولك (تقرأ 4 مرات)." },
-        { title: "حسبي الله لا إله إلا هو عليه توكلت وهو رب العرش العظيم (سبع مرات)", desc: "كفاه الله ما أهمه من أمر الدنيا والآخرة." },
-        { title: "بسم الله الذي لا يضر مع اسمه شيء في الأرض ولا في السماء وهو السميع العليم (ثلاث مرات)", desc: "لم يضره شيء حتى يمسحي." },
-        { title: "اللهم عافني في بدني، اللهم عافني في سمعي، اللهم عافني في بصري (ثلاث مرات)", desc: "لا إله إلا أنت." },
-        { title: "اللهم إني أسألك العفو والعافية في الدنيا والآخرة", desc: "اللهم إني أسألك العفو والعافية في ديني ودنياي وأهلي ومالي..." },
-        { title: "يا حي يا قيوم برحمتك أستغيث", desc: "صلح لي شأني كله ولا تكلني إلى نفسي طرفة عين." },
-        { title: "سبحان الله وبحمده (مائة مرة)", desc: "عدد خلقه، ورضا نفسه، وزنة عرشه، ومداد كلماته." }
-    ],
-    masaa: [
-        { title: "آية الكرسي", desc: "اللَّهُ لَا إِلَٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ..." },
-        { title: "سورة الإخلاص والمعوذات (ثلاث مرات)", desc: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ۝ قُلْ هُوَ اللَّهُ أَحَدٌ... (وسورتي الفلق والناس)." },
-        { title: "أمسينا وأمسى الملك لله والحمد لله", desc: "لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير، رب أسألك خير ما في هذه الليلة وخير ما بعدها..." },
-        { title: "اللهم بك أمسينا وبك أصبحنا وبك نحيا وبك نموت وإليك المصير", desc: "دعاء أذكار المساء المأثور." },
-        { title: "أعوذ بكلمات الله التامات من شر ما خلق (ثلاث مرات)", desc: "حفظ من كل أذى طوال الليل." },
-        { title: "اللهم أنت ربي لا إله إلا أنت، خلقتني وأنا عبدك...", desc: "سيد الاستغفار يقال أيضاً في المساء." },
-        { title: "رضيت بالله رباً وبالإسلام ديناً وبمحمد صلى الله عليه وسلم نبياً (ثلاث مرات)", desc: "من قالها رضي الله عنه." },
-        { title: "اللهم إني أمسيت أشهُدك وأشهُد حملة عرشك وملائكتك...", desc: "أنك أنت الله لا إله إلا أنت وحدك لا شريك لك (4 مرات)." },
-        { title: "حسبي الله لا إله إلا هو عليه توكلت وهو رب العرش العظيم (سبع مرات)", desc: "يكفيك الله ما أهمك." },
-        { title: "بسم الله الذي لا يضر مع اسمه شيء في الأرض ولا في السماء (ثلاث مرات)", desc: "حماية تامة بفضل الله." }
-    ],
-    sleep: [
-        { title: "جمع الكفين والنفث فيهما بقراءة المعوذات", desc: "يقرأ سورة الإخلاص والفلق والناس ويمسح بهما ما استطاع من الجسد (تكرر ثلاث مرات)." },
-        { title: "آية الكرسي قبل النوم", desc: "من قرأها لا يزال عليه من الله حافظ ولا يقربنه شيطان حتى يصبح." },
-        { title: "خواتيم سورة البقرة (الآيتان الأخيرتان من آمن الرسول)", desc: "من قرأهما في ليلة كفتاه." },
-        { title: "باسمك ربي وضعت جنبي وبك أرفعه", desc: "إن أمسكت نفسي فارحمنها، وإن أرسلتها فاحفظها بما تحفظ به عبادك الصالحين." },
-        { title: "اللهم قني عذابك يوم تجمع عبادك (ثلاث مرات)", desc: "يقال عند وضع الجنب على الفراش." },
-        { title: "سورة الملك (تبارك الذى بيده الملك)", desc: "سنة مهجورة ومنجاة من عذاب القبر." }
-    ],
-    wakeup: [
-        { title: "الحَمْدُ للهِ الذي أحيانا بعد ما أماتنا وإليه النشور", desc: "الدعاء الجامع العظيم فور الاستيقاظ." },
-        { title: "لا إله إلا الله وحده لا شريك له", desc: "له الملك وله الحمد وهي على كل شيء قدير، سبحان الله والحمد لله ولا إله إلا الله والله أكبر ولا حول ولا قوة إلا بالله." },
-        { title: "الحمد لله الذي عافاني في جسدي ورد علي روحي وأذن لي بذكره", desc: "شكر نعمة الحياة والعافية كل صباح." }
-    ],
-    prayer: [
-        { title: "أستغفر الله (ثلاثاً)", desc: "اللهم أنت السلام ومنك السلام تباركت يا ذا الجلال والإكرام." },
-        { title: "لا إله إلا الله وحده لا شريك له", desc: "له الملك وله الحمد وهي على كل شيء قدير، اللهم لا مانع لما أعطيت ولا معطي لما منعت ولا ينفع ذا الجد منك الجد." },
-        { title: "اللهم أعني على ذكرك وشكرك وحسن عبادتك", desc: "تقال في دبر كل صلاة مكتوبة." },
-        { title: "آية الكرسي بعد كل صلاة مكتوبة", desc: "من قرأها دبر كل صلاة لم يمنعه من دخول الجنة إلا أن يموت." }
-    ]
-};
-
-function loadAdhkarCategory(cat, e) {
-    if(e) {
-        document.querySelectorAll('#adhkarTab .tab-btn').forEach(b => b.classList.remove('active'));
-        e.currentTarget.classList.add('active');
-    }
-    const container = document.getElementById("adhkarContainer");
-    container.innerHTML = "";
-    adhkarData[cat].forEach(item => {
-        container.innerHTML += `
-            <div style="background:var(--bg-color); border:1px solid var(--border-color); border-radius:12px; padding:15px; margin-bottom:12px;">
-                <h4 style="font-family:'Amiri'; font-size:1.3rem; color:var(--primary-color); margin-bottom:6px;">${item.title}</h4>
-                <p style="font-size:1rem; font-family:'Amiri'; line-height:1.8;">${item.desc}</p>
-            </div>
-        `;
-    });
-}
-loadAdhkarCategory('sabah');
-
-function calculateKhatmaPlan() {
-    const days = parseInt(document.getElementById("targetDays").value) || 30;
-    const current = parseInt(document.getElementById("currentJuz").value) || 0;
-    const remainingJuz = 30 - current;
-    const juzPerDay = (remainingJuz / days).toFixed(1);
-    const percent = ((current / 30) * 100).toFixed(0);
-    
-    document.getElementById("khatmaPlanFill").style.width = percent + "%";
-    document.getElementById("khatmaResultText").textContent = `لإتمام الختمة في ${days} يوماً، يلزمك قراءة حوالي ${juzPerDay} جزء يومياً (أنجزت ${percent}%)`;
-}
-calculateKhatmaPlan();
-
-function openMood(title, ayah, source, dua) {
-    document.getElementById("moodTitle").textContent = "حالة: " + title;
-    document.getElementById("moodAyah").textContent = `"${ayah}"`;
-    document.getElementById("moodSource").textContent = source;
-    document.getElementById("moodDua").textContent = "الدعاء المأثور: " + dua;
-    document.getElementById("moodDisplayBox").style.display = "block";
-}
-
-let tasbeehInteractiveCount = parseInt(localStorage.getItem('tasbeeh_count') || 0);
-function updateTasbeehUI() {
-    const goal = parseInt(document.getElementById("tasbeehGoal").value) || 33;
-    const dhikr = document.getElementById("tasbeehDhikrType").value;
-    document.getElementById("tasbeehCount").textContent = tasbeehInteractiveCount;
-    document.getElementById("tasbeehLabel").textContent = dhikr;
-    const percent = Math.min((tasbeehInteractiveCount / goal) * 100, 100);
-    document.getElementById("tasbeehProgressFill").style.width = percent + "%";
-    document.getElementById("tasbeehGoalStatus").textContent = `أنجزت ${tasbeehInteractiveCount} من أصل ${goal} (${percent.toFixed(0)}%)`;
-}
-function incrementTasbeehInteractive() {
-    tasbeehInteractiveCount++;
-    localStorage.setItem('tasbeeh_count', tasbeehInteractiveCount);
-    if(navigator.vibrate) navigator.vibrate(30);
-    updateTasbeehUI();
-}
-function resetTasbeehInteractive() {
-    tasbeehInteractiveCount = 0;
-    localStorage.setItem('tasbeeh_count', 0);
-    updateTasbeehUI();
-}
-document.getElementById("tasbeehDhikrType").addEventListener("change", updateTasbeehUI);
-document.getElementById("tasbeehGoal").addEventListener("input", updateTasbeehUI);
-updateTasbeehUI();
 </script>
-
 </body>
 </html>
