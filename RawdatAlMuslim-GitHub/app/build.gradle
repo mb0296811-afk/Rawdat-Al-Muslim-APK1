@@ -1,9 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    androidResources { noCompress += ['mp3'] }
-}
-android {
+android {androidResources { noCompress += ['mp3'] }
     namespace 'com.rawdatalmuslim.app'
     compileSdk 35
     defaultConfig {
