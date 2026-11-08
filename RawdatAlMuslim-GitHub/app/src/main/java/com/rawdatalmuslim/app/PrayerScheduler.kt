@@ -11,46 +11,67 @@ import org.json.JSONArray
 import java.util.Calendar
 
 object PrayerScheduler {
-    private const val CHANNEL = "prayer_adhan"
-    private const val PREFS = "rawdatalmuslim_native"
+
     fun createChannel(context: Context) {
-        if (Build.VERSION.SDK_INT >= 26) {
-            val nm = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            nm.createNotificationChannel(NotificationChannel(CHANNEL, "تنبيهات الصلاة", NotificationManager.IMPORTANCE_HIGH))
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val name = "تنبيهات الأذان"
+            val descriptionText = "قناة خاصة بتشغيل أذان الصلاة في وقتها"
+            val importance = NotificationManager.IMPORTANCE_HIGH
+            val channel = NotificationChannel("adhan_channel", name, importance).apply {
+                description = descriptionText
+                enableVibration(true)
+            }
+            val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
         }
     }
-    fun scheduleAll(context: Context, prayers: JSONArray, muted: Boolean) {
-        val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-        prefs.edit().putBoolean("muted", muted).putString("prayers", prayers.toString()).apply()
-        val am = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        for (i in 0 until prayers.length()) {
-            val p = prayers.getJSONObject(i)
-            val id = 2000 + i
-            val intent = Intent(context, PrayerReceiver::class.java).apply {
-                putExtra("prayerName", p.optString("name", "الصلاة"))
-                putExtra("audio", p.optString("audio", ""))
-                putExtra("muted", muted)
-                putExtra("id", id)
+
+    fun scheduleAll(context: Context, jsonArray: JSONArray, muted: Boolean) {
+        val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+
+        for (i in 0 until jsonArray.length()) {
+            try {
+                val prayerObj = jsonArray.getJSONObject(i)
+                val name = prayerObj.getString("name")
+                val hour = prayerObj.getInt("hour")
+                val minute = prayerObj.getInt("minute")
+                val period = prayerObj.getString("period")
+                
+                var targetHour = hour
+                if (period.equals("PM", ignoreCase = true) && targetHour < 12) targetHour += 12
+                if (period.equals("AM", ignoreCase = true) && targetHour == 12) targetHour = 0
+
+                val calendar = Calendar.getInstance().apply {
+                    set(Calendar.HOUR_OF_DAY, targetHour)
+                    set(Calendar.MINUTE, minute)
+                    set(Calendar.SECOND, 0)
+                    set(Calendar.MILLISECOND, 0)
+                }
+
+                if (calendar.timeInMillis <= System.currentTimeMillis()) {
+                    calendar.add(Calendar.DAY_OF_YEAR, 1)
+                }
+
+                val intent = Intent(context, AlarmReceiver::class.java).apply {
+                    putExtra("prayer_name", name)
+                    putExtra("is_muted", muted)
+                }
+
+                val pendingIntent = PendingIntent.getBroadcast(
+                    context,
+                    i,
+                    intent,
+                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+                )
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
+                    alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
+                } else {
+                    alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, calendar.timeInMillis, pendingIntent)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
-            val pi = PendingIntent.getBroadcast(context, id, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
-            am.cancel(pi)
-            if (muted) continue
-            val hour12 = p.optInt("hour", 12)
-            val minute = p.optInt("minute", 0)
-            val period = p.optString("period", "AM")
-            val hour24 = (hour12 % 12) + if (period == "PM") 12 else 0
-            val cal = Calendar.getInstance().apply {
-                set(Calendar.HOUR_OF_DAY, hour24); set(Calendar.MINUTE, minute)
-                set(Calendar.SECOND, 0); set(Calendar.MILLISECOND, 0)
-                if (timeInMillis <= System.currentTimeMillis()) add(Calendar.DAY_OF_YEAR, 1)
-            }
-            if (Build.VERSION.SDK_INT >= 23) am.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, cal.timeInMillis, pi)
-            else am.setExact(AlarmManager.RTC_WAKEUP, cal.timeInMillis, pi)
         }
-    }
-    fun rescheduleAfterBoot(context: Context) {
-        val prefs = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-        val raw = prefs.getString("prayers", null) ?: return
-        scheduleAll(context, JSONArray(raw), prefs.getBoolean("muted", false))
     }
 }
