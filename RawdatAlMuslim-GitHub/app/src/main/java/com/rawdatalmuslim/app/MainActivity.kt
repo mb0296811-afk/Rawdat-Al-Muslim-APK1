@@ -26,6 +26,12 @@ class MainActivity : Activity() {
         web.settings.javaScriptEnabled = true
         web.settings.domStorageEnabled = true
         web.settings.allowFileAccess = true
+        
+        // --- أضف هذين السطرين لحل مشكلة الشاشة البيضاء للملفات المحلية ---
+        web.settings.allowFileAccessFromFileURLs = true
+        web.settings.allowUniversalAccessFromFileURLs = true
+        // -------------------------------------------------------------
+
         web.webViewClient = WebViewClient()
         web.webChromeClient = WebChromeClient()
         web.addJavascriptInterface(AndroidPrayerBridge(), "AndroidPrayer")
