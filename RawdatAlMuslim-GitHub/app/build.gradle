@@ -18,4 +18,14 @@ android {
         versionCode 1
         versionName '1.0'
     }
+
+    // أضف هذا الجزء هنا لتوحيد إصدار الجافا ليتطابق مع كوتشين (17)
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = '17'
+    }
 }
