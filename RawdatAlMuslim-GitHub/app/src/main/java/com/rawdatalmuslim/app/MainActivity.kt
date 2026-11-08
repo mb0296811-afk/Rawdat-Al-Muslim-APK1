@@ -2,7 +2,6 @@ package com.rawdatalmuslim.app
 
 import android.Manifest
 import android.app.Activity
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
@@ -12,9 +11,7 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
-import androidx.core.content.FileProvider
 import org.json.JSONArray
-import java.io.File
 
 class MainActivity : Activity() {
     private lateinit var web: WebView
@@ -40,40 +37,7 @@ class MainActivity : Activity() {
         settings.mediaPlaybackRequiresUserGesture = false
         settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
 
-        web.webViewClient = object : WebViewClient() {
-            override fun shouldOverrideUrlLoading(view: WebView?, request: android.webkit.WebResourceRequest?): Boolean {
-                val url = request?.url.toString()
-                if (url.contains("quran") || url.endsWith(".pdf")) {
-                    try {
-                        val fileName = "standard1-quran.pdf"
-                        val outFile = File(cacheDir, fileName)
-                        if (!outFile.exists()) {
-                            assets.open(fileName).use { input ->
-                                outFile.outputStream().use { output ->
-                                    input.copyTo(output)
-                                }
-                            }
-                        }
-                        val uri = FileProvider.getUriForFile(
-                            this@MainActivity,
-                            "${packageName}.fileprovider",
-                            outFile
-                        )
-                        val intent = Intent(Intent.ACTION_VIEW).apply {
-                            setDataAndType(uri, "application/pdf")
-                            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        }
-                        startActivity(intent)
-                    } catch (e: Exception) {
-                        Toast.makeText(this@MainActivity, "تعذر فتح المصحف: ${e.message}", Toast.LENGTH_LONG).show()
-                    }
-                    return true
-                }
-                return false
-            }
-        }
-
+        web.webViewClient = WebViewClient()
         web.webChromeClient = WebChromeClient()
         web.addJavascriptInterface(AndroidPrayerBridge(), "AndroidPrayer")
 
