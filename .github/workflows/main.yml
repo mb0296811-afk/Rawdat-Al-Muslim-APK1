@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # هنا يتم تحديد المجلد للـ Job بالكامل لتجنب أي أخطاء في الـ Syntax
     defaults:
       run:
         working-directory: ./RawdatAlMuslim-GitHub
@@ -26,11 +25,14 @@ jobs:
 
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v3
+      with:
+        gradle-version: '8.9'
 
     - name: Build with Gradle
       uses: gradle/actions/setup-gradle@v3
       with:
         arguments: build
+        gradle-version: '8.9'
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
